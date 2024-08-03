@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface ICoin extends Document {
+export interface ICoinStat extends Document {
     _id: string;
     code: string;
     rate: number;
