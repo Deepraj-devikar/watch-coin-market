@@ -20,7 +20,10 @@ class CoinStatRoutes {
     );
 
     //route to get a single coinStat
-    this.router.get('/:_id', this.CoinStatController.getCoinStat);
+    this.router.get(
+      '/:code', 
+      this.CoinStatController.CoinStatService.getCoinStat
+    );
 
   };
 

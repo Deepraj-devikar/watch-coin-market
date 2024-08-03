@@ -48,7 +48,7 @@ const routes = (): IRouter => {
 
   router.use('/coin', new coinRoute().getRoutes());
 
-  router.use('/coinStat', new coinStatRoute().getRoutes());
+  router.use('/coin-stat', new coinStatRoute().getRoutes());
   return router;
 };
 

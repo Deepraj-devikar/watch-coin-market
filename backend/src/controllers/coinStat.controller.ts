@@ -31,29 +31,6 @@ class CoinStatController {
   };
 
   /**
-   * Controller to get a coinStat
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public getCoinStat = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ): Promise<any> => {
-    try {
-      const data = await this.CoinStatService.getCoinStat(req.params._id);
-      res.status(HttpStatus.OK).json({
-        code: HttpStatus.OK,
-        data: data,
-        message: 'CoinStat fetched successfully'
-      });
-    } catch (error) {
-      next(error);
-    }
-  };
-
-  /**
    * Controller to create new coinStat
    */
   public newCoinStat = async (): Promise<any> => {
