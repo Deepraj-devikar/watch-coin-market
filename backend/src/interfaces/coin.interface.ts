@@ -21,4 +21,15 @@ export interface ICoin extends Document {
     totalSupply: number;
     maxSupply: number;
     links: object;
+    rate: number;
+    volume: number;
+    cap: number;
+    delta: {
+        hour: number;
+        day: number;
+        week: number;
+        month: number;
+        quarter: number;
+        year: number;
+    };
 }

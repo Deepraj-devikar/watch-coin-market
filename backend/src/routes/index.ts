@@ -1,11 +1,12 @@
 import express, { IRouter } from 'express';
 const router = express.Router();
-import coinController from '../controllers/coin.controller';
-
+import coinStatRoute from './coinStat.route';
+import CoinController from '../controllers/coin.controller';
+import CoinStatController from '../controllers/coinStat.controller';
 import coinRoute from './coin.route';
 
-const CoinController = new coinController();
-CoinController.newCoin()
+const coinController = new CoinController();
+coinController.newCoin()
 .then(isCoinAdded => {
   if (isCoinAdded) {
     console.log("Coins information added successfully");
@@ -16,6 +17,24 @@ CoinController.newCoin()
 .catch(error => {
   console.log("Coins information not added");
 });
+
+const coinStatController = new CoinStatController();
+setInterval(
+  async () => {
+    coinStatController.newCoinStat()
+    .then(isCoinStatAdded => {
+      if (isCoinStatAdded) {
+        console.log("Coin stat added syuccessfully");
+      } else {
+        console.log("Coin stat not added");
+      }
+    })
+    .catch(error => {
+      console.log("Coin stat not added");
+    });
+  },
+  3000
+);
 
 /**
  * Function contains Application routes
@@ -29,6 +48,7 @@ const routes = (): IRouter => {
 
   router.use('/coin', new coinRoute().getRoutes());
 
+  router.use('/coinStat', new coinStatRoute().getRoutes());
   return router;
 };
 

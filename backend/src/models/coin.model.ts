@@ -25,7 +25,18 @@ const coinSchema = new Schema(
     circulatingSupply: Number,
     totalSupply: Number,
     maxSupply: Number,
-    links: {}
+    links: {},
+    rate: Number,
+    volume: Number,
+    cap: Number,
+    delta: {
+      hour: Number,
+      day: Number,
+      week: Number,
+      month: Number,
+      quarter: Number,
+      year: Number
+    }
   },
   {
     timestamps: true
